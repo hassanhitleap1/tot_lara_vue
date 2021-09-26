@@ -4,11 +4,16 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+
 require('./bootstrap');
 
 window.Vue = require('vue');
 import Vue from 'vue'
 import Vuetify from 'vuetify'
+import  VueRoute from 'vue-router';
+import router from "./Router/index";
+
+Vue.use(VueRoute);
 Vue.use(Vuetify);
 const vuetify = new Vuetify();
 /**
@@ -22,7 +27,9 @@ const vuetify = new Vuetify();
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
+
+Vue.component('app-home', require('./components/AppHome.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -32,5 +39,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    router,
     vuetify,
+    data: () => ({
+        collapseOnScroll: true,
+    }),
 });

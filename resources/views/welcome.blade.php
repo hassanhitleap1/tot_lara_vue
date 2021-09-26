@@ -11,9 +11,7 @@
 <body>
 <div id="app">
     <v-app>
-        <v-container>
-            has
-        </v-container>
+        <app-home></app-home>
     </v-app>
 </div>
 
