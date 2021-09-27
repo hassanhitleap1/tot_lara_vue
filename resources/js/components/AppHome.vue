@@ -2,6 +2,10 @@
     <div>
         <ToolBar />
         <AppFooter />
+        <v-container>
+            <router-view></router-view>
+        </v-container>
+
     </div>
 </template>
 

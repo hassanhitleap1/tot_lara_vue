@@ -2217,6 +2217,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2238,22 +2242,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -38069,7 +38057,17 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("ToolBar"), _vm._v(" "), _c("AppFooter")], 1)
+  return _c(
+    "div",
+    [
+      _c("ToolBar"),
+      _vm._v(" "),
+      _c("AppFooter"),
+      _vm._v(" "),
+      _c("v-container", [_c("router-view")], 1)
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -38094,88 +38092,96 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-card",
-    { staticClass: "mx-auto overflow-hidden", attrs: { height: "400" } },
+    "div",
     [
       _c(
-        "v-app-bar",
-        { attrs: { color: "deep-purple", dark: "" } },
-        [
-          _c("v-app-bar-nav-icon", {
-            on: {
-              click: function($event) {
-                _vm.drawer = true
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("v-toolbar-title", [_vm._v("Title")])
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "v-navigation-drawer",
-        {
-          attrs: { absolute: "", temporary: "" },
-          model: {
-            value: _vm.drawer,
-            callback: function($$v) {
-              _vm.drawer = $$v
-            },
-            expression: "drawer"
-          }
-        },
+        "v-card",
+        { staticClass: "mx-auto overflow-hidden", attrs: { height: "400" } },
         [
           _c(
-            "v-list",
-            { attrs: { nav: "", dense: "" } },
+            "v-app-bar",
+            { attrs: { color: "deep-purple", dark: "" } },
+            [
+              _c("v-app-bar-nav-icon", {
+                on: {
+                  click: function($event) {
+                    _vm.drawer = true
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("v-toolbar-title", [_vm._v("Title")])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "v-navigation-drawer",
+            {
+              attrs: { absolute: "", temporary: "" },
+              model: {
+                value: _vm.drawer,
+                callback: function($$v) {
+                  _vm.drawer = $$v
+                },
+                expression: "drawer"
+              }
+            },
             [
               _c(
-                "v-list-item-group",
-                {
-                  attrs: { "active-class": "deep-purple--text text--accent-4" },
-                  model: {
-                    value: _vm.group,
-                    callback: function($$v) {
-                      _vm.group = $$v
-                    },
-                    expression: "group"
-                  }
-                },
+                "v-list",
+                { attrs: { nav: "", dense: "" } },
                 [
                   _c(
-                    "v-list-item",
+                    "v-list-item-group",
+                    {
+                      attrs: {
+                        "active-class": "deep-purple--text text--accent-4"
+                      },
+                      model: {
+                        value: _vm.group,
+                        callback: function($$v) {
+                          _vm.group = $$v
+                        },
+                        expression: "group"
+                      }
+                    },
                     [
                       _c(
-                        "v-list-item-icon",
-                        [_c("v-icon", [_vm._v("mdi-home")])],
+                        "v-list-item",
+                        [
+                          _c(
+                            "v-list-item-icon",
+                            [_c("v-icon", [_vm._v("mdi-home")])],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "router-link",
+                            { attrs: { to: { name: "home" } } },
+                            [_c("v-list-item-title", [_vm._v("Home")])],
+                            1
+                          )
+                        ],
                         1
                       ),
                       _vm._v(" "),
                       _c(
-                        "router-link",
-                        { attrs: { to: "/" } },
-                        [_c("v-list-item-title", [_vm._v("Home")])],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-list-item",
-                    [
-                      _c(
-                        "v-list-item-icon",
-                        [_c("v-icon", [_vm._v("mdi-account")])],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "router-link",
-                        { attrs: { to: "/login" } },
-                        [_c("v-list-item-title", [_vm._v("login")])],
+                        "v-list-item",
+                        [
+                          _c(
+                            "v-list-item-icon",
+                            [_c("v-icon", [_vm._v("mdi-account")])],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "router-link",
+                            { attrs: { to: { name: "login" } } },
+                            [_c("v-list-item-title", [_vm._v("login")])],
+                            1
+                          )
+                        ],
                         1
                       )
                     ],
@@ -99104,12 +99110,16 @@ module.exports = function(module) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _routers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./routers */ "./resources/js/Router/routers.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./routes */ "./resources/js/Router/routes.js");
 
 
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
-  routers: _routers__WEBPACK_IMPORTED_MODULE_1__["default"],
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
+  routes: _routes__WEBPACK_IMPORTED_MODULE_2__["default"],
   // short for `routes: routes`,
   hashbang: false,
   mode: 'history'
@@ -99118,10 +99128,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_0__["default"]({
 
 /***/ }),
 
-/***/ "./resources/js/Router/routers.js":
-/*!****************************************!*\
-  !*** ./resources/js/Router/routers.js ***!
-  \****************************************/
+/***/ "./resources/js/Router/routes.js":
+/*!***************************************!*\
+  !*** ./resources/js/Router/routes.js ***!
+  \***************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -99131,20 +99141,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../pages/Home */ "./resources/js/pages/Home.vue");
 
 
-var router = [{
-  path: '/',
-  name: 'Home',
-  components: {
-    Home: _pages_Home__WEBPACK_IMPORTED_MODULE_1__["default"]
-  }
+var routes = [{
+  path: '/home',
+  name: "home",
+  component: _pages_Home__WEBPACK_IMPORTED_MODULE_1__["default"]
 }, {
+  name: "login",
   path: '/login',
-  name: 'login',
-  components: {
-    Login: _pages_auth_Login__WEBPACK_IMPORTED_MODULE_0__["default"]
-  }
+  component: _pages_auth_Login__WEBPACK_IMPORTED_MODULE_0__["default"]
 }];
-/* harmony default export */ __webpack_exports__["default"] = (router);
+/* harmony default export */ __webpack_exports__["default"] = (routes);
 
 /***/ }),
 
@@ -99174,8 +99180,8 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 
-
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]);
+
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_1___default.a);
 var vuetify = new vuetify__WEBPACK_IMPORTED_MODULE_1___default.a();
 /**
